@@ -1,0 +1,194 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 100%;
+            width: 90%;
+            max-width: 400px;
+            background-color: rgb(107, 102, 102);
+            padding: 0px 15px 20px 15px;
+            color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        h2 {
+            letter-spacing: 1px;
+            font-size: 35px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0px 0px 10px 0px;
+            text-align: center;
+        }
+
+        p {
+            color: orange;
+            font-family: monospace;
+            font-weight: 900;
+            font-size: 20px;
+            margin: 0px 0px 10px 0px;
+            text-align: center;
+        }
+
+        #display {
+            height: 70px;
+            background-color: rgb(189, 172, 172);
+            color: black;
+            font-size: 2rem;
+            text-align: right;
+            box-shadow: -5px -5px 10px 5px rgba(0, 0, 0, 0.5);
+            margin: 15px 0px;
+            padding-right: 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            background-color: #e6e6e6;
+            color: #000;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #000;
+            box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.5);
+            font-weight: 900;
+        }
+
+        .btn:hover {
+            border: 1px solid white;
+            background-color: rgb(140, 138, 138);
+        }
+
+        #equal_to {
+            border-radius: 50%;
+            background-color: rgb(179, 168, 168);
+            font-size: 20px;
+            color: black;
+        }
+
+        #red_btn {
+            background-color: rgb(232, 52, 100);
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            #display {
+                font-size: 1.5rem;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>OREVA</h2>
+        <center>
+            <p>Scientific CAL-C</p>
+        </center>
+        <div id="display">0</div>
+        <div class="buttons">
+            <div class="btn">7</div>
+            <div class="btn">8</div>
+            <div class="btn">9</div>
+            <div class="btn">/</div>
+            <div class="btn">4</div>
+            <div class="btn">5</div>
+            <div class="btn">6</div>
+            <div class="btn">*</div>
+            <div class="btn">1</div>
+            <div class="btn">2</div>
+            <div class="btn">3</div>
+            <div class="btn">-</div>
+            <div class="btn">0</div>
+            <div class="btn">.</div>
+            <div class="btn">+</div>
+            <div class="btn">%</div>
+            <div class="btn" id="red_btn">AC</div>
+            <div class="btn" id="red_btn">del</div>
+            <div class="btn" id="equal_to">=</div>
+            <div class="btn">sqrt</div>
+            <div class="btn">exp</div>
+            <div class="btn">pie</div>
+            <div class="btn">sq</div>
+        </div>
+    </div>
+
+    <script>
+        let show = document.getElementById('display');
+        let buttons = Array.from(document.getElementsByClassName('btn'));
+
+        buttons.map((btn) => {
+            btn.addEventListener('click', value);
+        });
+
+        function value(e) {
+            let key = e.target.innerText;
+            if (key === 'AC') {
+                show.innerText = '0';
+            } else if (key === '=') {
+                try {
+                    show.innerText = eval(show.innerText);
+                } catch {
+                    show.innerText = 'Error';
+                }
+            } else if (key === 'del') {
+                show.innerText = show.innerText.slice(0, -1) || '0';
+            } else if (key == "sqrt") {
+                show.innerText = Math.sqrt(parseFloat(show.innerText));
+            } else if (key == "exp") {
+                show.innerText += "**";
+            } else if (key == "pie") {
+                show.innerText = Math.PI;
+            } else if (key == "sq") {
+                show.innerText = Math.pow(parseFloat(show.innerText), 2);
+            } else if (key == "%") {
+                show.innerText = parseFloat(show.innerText) / 100;
+            } else {
+                if (['+', '-', '*', '/'].includes(key)) {
+                    let lastChar = show.innerText.slice(-1);
+                    if (['+', '-', '*', '/'].includes(lastChar)) {
+                        show.innerText = show.innerText.slice(0, -1) + key;
+                    } else {
+                        show.innerText += key;
+                    }
+                } else {
+                    if (show.innerText === '0') {
+                        show.innerText = key;
+                    } else {
+                        show.innerText += key;
+                    }
+                }
+            }
+            show.scrollLeft = show.scrollWidth;
+        } 
+        
+    </script>
+</body>
+</html> -->
